@@ -20,8 +20,8 @@
 from odoo import fields, models
 
 
-class WebsiteConfigSettings(models.TransientModel):
-    _inherit = "website.config.settings"
+class ResConfigSettings(models.TransientModel):
+    _inherit = "res.config.settings"
 
     piwik_analytics_id = fields.Integer(related=["website_id", "piwik_analytics_id"])
     piwik_analytics_host = fields.Char(related=["website_id", "piwik_analytics_host"])
