@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 ##############################################################################
 #
 #    OpenERP, Open Source Management Solution
@@ -26,14 +25,14 @@
     "category": "Website",
     "summary": "Track website users using piwik",
     "depends": [
-        'website',
+        "website",
     ],
     "data": [
         "views/website_config_settings.xml",
         "views/website.xml",
-        'views/templates.xml',
+        "views/templates.xml",
     ],
     "auto_install": False,
-    'installable': False,
+    "installable": False,
     "application": False,
 }
