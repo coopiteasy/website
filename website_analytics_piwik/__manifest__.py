@@ -31,7 +31,6 @@
         "views/res_config_settings.xml",
         "views/templates.xml",
     ],
-    "auto_install": False,
     "installable": True,
     "application": False,
 }
