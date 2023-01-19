@@ -1,7 +1,7 @@
 ##############################################################################
 #
 #    OpenERP, Open Source Management Solution
-#    This module copyright (C) 2015 Therp BV <http://therp.nl>.
+#    This module copyright (C) 2015 Therp BV (<http://therp.nl>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -17,20 +17,15 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-{
-    "name": "Piwik analytics",
-    "version": "14.0.1.0.0",
-    "author": "Therp BV,Odoo Community Association (OCA)",
-    "license": "AGPL-3",
-    "category": "Website",
-    "summary": "Track website users using piwik",
-    "depends": [
-        "website",
-    ],
-    "data": [
-        "views/res_config_settings.xml",
-        "views/templates.xml",
-    ],
-    "installable": True,
-    "application": False,
-}
+from odoo import fields, models
+
+
+class ResConfigSettings(models.TransientModel):
+    _inherit = "res.config.settings"
+
+    matomo_analytics_id = fields.Integer(
+        related=["website_id", "matomo_analytics_id"], readonly=False
+    )
+    matomo_analytics_host = fields.Char(
+        related=["website_id", "matomo_analytics_host"], readonly=False
+    )

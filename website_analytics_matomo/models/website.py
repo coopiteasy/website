@@ -20,10 +20,17 @@
 from odoo import fields, models
 
 
-class ResConfigSettings(models.TransientModel):
-    _inherit = "res.config.settings"
+class Website(models.Model):
+    _inherit = "website"
 
-    piwik_analytics_id = fields.Integer(related=["website_id", "piwik_analytics_id"],
-    readonly=False)
-    piwik_analytics_host = fields.Char(related=["website_id", "piwik_analytics_host"],
-    readonly=False)
+    matomo_analytics_id = fields.Integer(
+        "Matomo website ID",
+        help="The ID Matomo uses to identify the website",
+        default=1,
+    )
+    matomo_analytics_host = fields.Char(
+        "Matomo host",
+        help="The host/path your Matomo installation is "
+        "accessible by on the internet. Do not include a protocol here!\n"
+        "So http[s]://[this field]/matomo.php should resolve to your matomo.php",
+    )
